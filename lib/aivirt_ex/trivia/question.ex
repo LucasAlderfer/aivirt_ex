@@ -1,6 +1,8 @@
 defmodule AivirtEx.Trivia.Question do
   use Ecto.Schema
   import Ecto.Changeset
+  alias AivirtEx.Trivia.Game
+  alias AivirtEx.Trivia.GameQuestion
 
 
   schema "questions" do
@@ -12,6 +14,7 @@ defmodule AivirtEx.Trivia.Question do
     field :incorrect_answers, {:array, :string}
     field :text, :string
 
+    many_to_many :games, Game, join_through: GameQuestion
     timestamps()
   end
 
