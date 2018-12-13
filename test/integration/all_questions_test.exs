@@ -29,8 +29,6 @@ defmodule AivirtExWeb.QuestionControllerTest do
       |> get(Routes.question_path(conn, :index))
       |> json_response(200)
 
-    # require IEx; IEx.pry
-    IO.inspect(response)
     assert Enum.count(response["data"]) == 2
   end
 end
